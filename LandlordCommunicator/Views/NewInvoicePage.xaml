@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandlordCommunicator.ViewModels.NewInvoicePage"
+              Title="New Invoice">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <!--Fix this to batch model-->
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Invoice" Opacity=".10"></Image>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+                <ScrollView>
+                    <StackLayout Spacing="5" Padding="5">
+
+                        <Image x:Name="Picture" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100"
+                                          HorizontalOptions="Center" Source="{Binding Invoice.Image}" />
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Text="Add Photo" Clicked="Button_Clicked" Grid.Row="0" Grid.ColumnSpan="4" BackgroundColor="Black" TextColor="White" BorderRadius="15" />
+
+
+                            <Label Text="Description" FontSize="Micro" TextColor="Black" Grid.Row="1"/>
+                            <Entry x:Name="EntryDescription" Placeholder="Some Text" FontSize="Micro" TextColor="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandlordCommunicator.Views.NewContractorPage"
+             Title="New Contractor">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <!--Fix this to batch model-->
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Contractor" Opacity=".10"></Image>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+                <ScrollView>
+                    <StackLayout Spacing="5" Padding="5">
+
+                        
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                          
+
+
+                            <Label Text="Company Name:" FontSize="Micro" TextColor="Black" Grid.Row="1"/>
+                            <Entry x:Name="EntryCompanyName" Placeholder="Dan's Electric" FontSize="Micro" TextColor="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Label Text="Contractor Type:" FontSize="Micro" TextColor="Black" Grid.Row="2"/>
+                            <Entry x:Name="EntryContractorType" Placeholder="Electrician"  FontSize="Micro" TextColor="Black" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Label Text="Phone Number:" FontSize="Micro" TextColor="Black" Grid.Row="3"/>
+                            <Entry x:Name="EntryPhoneNumber" Placeholder="9999999999" FontSize="Micro" Margin="0" TextColor="Black" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Keyboard="Numeric"/>
+                            <Label Text="Description:" FontSize="Micro" TextColor="Black" Grid.Row="4"/>
+                            <Entry x:Name="EntryDescription" Placeholder="Some Text" FontSize="Micro" Margin="0" TextColor="Black" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+                           
+
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

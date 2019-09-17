@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="LandlordCommunicator.Views.LocationEdit"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout >
+
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Location" Opacity=".10"></Image>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+            <ScrollView>
+        <StackLayout Spacing="5" Padding="7">
+                    <controls:CircleImage x:Name="Picture" Aspect="AspectFit" VerticalOptions="Center" 
+                                          HorizontalOptions="Center" Source="{Binding Location.Image}"  />
+
+                    <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                 </Grid.RowDefinitions>
+               
+                        <Button Text="Change Photo" Clicked="Button_Clicked" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="1" BackgroundColor="Black" TextColor="White" BorderRadius="15" />
+
+                        <Label x:Name="ID" Text="{Binding Location.Id}" IsVisible="False" FontSize="Micro" TextColor="Black"/>
+                        <Label Text="Name:" FontSize="Micro" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Editor x:Name="NAME" Text="{Binding Location.Name}" FontSize="Micro" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="Address:" FontSize="Micro" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Editor x:Name="ADDRESS"  Text="{Binding Location.Address}"  FontSize="Micro" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="Suite:" FontSize="Micro" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                        <Editor x:Name="SUITE" Text="{Binding Location.Suite}" FontSize="Micro" Margin="0" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="City:" FontSize="Micro" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Editor x:Name="CITY" Text="{Binding Location.City}" FontSize="Micro" Margin="0" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black" />
+                        <Label Text="ZipCode:" FontSize="Micro" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Editor x:Name="ZIPCODE" Text="{Binding Location.Zipcode}" FontSize="Micro" Margin="0"  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="Latitude:" FontSize="Micro" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Editor x:Name="LATITUDE" Text="{Binding Location.Latitude}" FontSize="Micro" Margin="0"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="Longitude:" FontSize="Micro" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Editor x:Name="LONGITUDE" Text="{Binding Location.Longitude}" FontSize="Micro" Margin="0"  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="(Button Only Accesses Current Coordinance)" FontSize="Micro" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" TextColor="Black"/>
+                        <Button Text="Get GPS Coordinance" Clicked="GPS_Clicked" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label Text="Rent Amount:" FontSize="Micro" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Editor x:Name="RENTAMOUNT" Text="{Binding Location.RentAmount}" FontSize="Micro" Margin="0"  Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="Tenant: " FontSize="Micro" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                        <Label Text="{Binding Location.Tenant}" FontSize="Micro"  Grid.Row="11"  Grid.Column="1" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="New Tenant" FontSize="Micro" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                        <Picker x:Name="TenantPicker" Title="Change Renter" ItemDisplayBinding="{Binding Renter}" FontSize="Micro" Grid.Row="12"  
+                                Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black" SelectedItem="{Binding SelectedItem, Mode= TwoWay}"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+</ContentPage>

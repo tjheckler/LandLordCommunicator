@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="LandlordCommunicator.Views.TenantEdit"
+             Title= "">
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+  
+    <AbsoluteLayout >
+
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="avatar" Opacity=".10"></Image>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+            <ScrollView >
+                <StackLayout Spacing="5" Padding="5">
+                    <controls:CircleImage x:Name="Picture" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" Source="{Binding Tenant.Image}"  />
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button Text="Change Photo" Clicked="Button_Clicked" Grid.Row="0"  Grid.ColumnSpan="5"  BackgroundColor="Black" TextColor="White" BorderRadius="15" />
+                    
+                    <Label x:Name="ID" Text="{Binding Tenant.Id}" IsVisible="False" FontSize="Micro" TextColor="Black"/>
+                    <Label Text="Tenant First Name: " FontSize="Micro" TextColor="Black" Grid.Row="1"/>
+                    <Editor x:Name="FIRSTNAME" Text="{Binding Tenant.FirstName}" FontSize="Micro" TextColor="Black" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"/>
+                    <Label Text="Tenant Last Name: " FontSize="Micro" TextColor="Black" Grid.Row="2"/>
+                        <Editor x:Name="LASTNAME" Text="{Binding Tenant.LastName}" FontSize="Micro" TextColor="Black" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"/>
+                    <Label Text="Co-Tenant First Name: " FontSize="Micro" TextColor="Black" Grid.Row="3"/>
+                        <Editor x:Name="SECONDARYFIRSTNAME" Text="{Binding Tenant.SecondaryFirstName}" FontSize="Micro" TextColor="Black" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3"/>
+                    <Label Text="Co-Tenant Last Name: " FontSize="Micro" TextColor="Black" Grid.Row="4"/>
+                        <Editor x:Name="SECONDARYLASTNAME" Text="{Binding Tenant.SecondaryLastName}" FontSize="Micro" TextColor="Black" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3"/>
+                    <Label Text="Contact Number: " FontSize="Micro" TextColor="Black" Grid.Row="5"/>
+                        <Editor x:Name="PHONENUMBER" Text="{Binding Tenant.PhoneNumber}" FontSize="Micro" Keyboard="Numeric" TextColor="Black" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" />
+                    <Label Text="Contact Email Address: " FontSize="Micro" TextColor="Black" Grid.Row="6"/>
+                        <Editor x:Name="EMAILADDRESS" Text="{Binding Tenant.EmailAddress}" FontSize="Micro" Keyboard="Email" TextColor="Black" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

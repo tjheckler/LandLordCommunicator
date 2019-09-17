@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandlordCommunicator.Views.ContractorEdit"
+            Title= "">
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <AbsoluteLayout >
+
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Contractor" Opacity=".10"></Image>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+            <ScrollView >
+                <StackLayout Spacing="5" Padding="5">
+                    
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="ID" Text="{Binding Contractor.Id}" IsVisible="False" FontSize="Micro" TextColor="Black"/>
+                        <Label Text="Company Name: " FontSize="Micro" TextColor="Black" Grid.Row="1"/>
+                        <Editor x:Name="COMPANYNAME" Text="{Binding Contractor.CompanyName}" FontSize="Micro" TextColor="Black" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"/>
+                        <Label Text="Description: " FontSize="Micro" TextColor="Black" Grid.Row="2"/>
+                        <Editor x:Name="DESCRIPTION" Text="{Binding Contractor.Description}" FontSize="Micro" TextColor="Black" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"/>
+                        <Label Text="Contractor Type: " FontSize="Micro" TextColor="Black" Grid.Row="3"/>
+                        <Editor x:Name="CONTRACTORTYPE" Text="{Binding Contractor.ContractorType}" FontSize="Micro" TextColor="Black" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3"/>
+                        <Label Text="Phone Number: " FontSize="Micro" TextColor="Black" Grid.Row="4"/>
+                        <Editor x:Name="PHONENUMBER" Text="{Binding Contractor.PhoneNumber}" FontSize="Micro" TextColor="Black" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3"/>
+                       
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

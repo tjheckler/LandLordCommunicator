@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="LandlordCommunicator.Views.Reporting"
+              Title="Rental Organizer">
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="icon"  Opacity=".10" ></Image>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+                <StackLayout Spacing="5" Padding="5">
+                    <controls:CircleImage x:Name="Picture" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="64" WidthRequest="64"
+                                          HorizontalOptions="Center" Source="launcher_foreground" />
+                    <Label Text="Manage Reports" FontSize="Micro" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+
+                </StackLayout >
+                <BoxView HeightRequest="1" BackgroundColor="Black" />
+                <ScrollView >
+                    <Grid BackgroundColor="Transparent"  Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="Expenses" Text="Expenses" BackgroundColor="Black" TextColor="White" BorderRadius="15" Grid.Row="0" Grid.Column="0" FontSize="Micro"/>
+                        <Button x:Name="Inventory" Text="Inventory" BackgroundColor="Black" TextColor="White" BorderRadius="15" Grid.Row="0" Grid.Column="1" FontSize="Micro"/>
+                        <Button x:Name="Invoices" Text="Invoices" BackgroundColor="Black" TextColor="White" BorderRadius="15" Grid.Row="1" Grid.Column="0" FontSize="Micro"/>
+                        <Button x:Name="Income" Text="Income" BackgroundColor="Black" TextColor="White" BorderRadius="15" Grid.Row="1" Grid.Column="1" FontSize="Micro"/>
+                        
+
+                    </Grid>
+                    
+                </ScrollView>
+                <StackLayout Padding="5" Spacing="5">
+                    <Label x:Name="Warning" Text="Reporting Still Under Construction, Thanks for your support! See you on the next advertisement free update!" FontAttributes="Italic" TextColor="Black" 
+                               LineBreakMode="WordWrap" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandlordCommunicator.Views.NewExpensePage"
+            Title="New Expense">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Location" Opacity=".10"></Image>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+                <ScrollView>
+                    <StackLayout Spacing="5" Padding="5">
+
+                       
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Description:" FontSize="Micro" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                            <Entry x:Name="EntryDescription" Placeholder="Some Text" FontSize="Micro" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="Expense Amount:" FontSize="Micro" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                            <Entry x:Name="EntryExpenseAmount" Placeholder="100" FontSize="Micro" Margin="0" Keyboard="Numeric" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="Location: " FontSize="Micro" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                            <Picker x:Name="LocationPicker"  ItemDisplayBinding="{Binding Name}" FontSize="Micro" Grid.Row="3"  Grid.Column="1" Grid.ColumnSpan="4"
+                                    TextColor="Black" SelectedItem="{Binding SelectedLocation, Mode= TwoWay}"/>
+                            <Label Text="Contractor: " FontSize="Micro" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                            <Picker x:Name="ContractorPicker"  ItemDisplayBinding="{Binding CompanyName}" FontSize="Micro" Grid.Row="4"  Grid.Column="1" Grid.ColumnSpan="4"
+                                    TextColor="Black" SelectedItem="{Binding SelectedItem, Mode= TwoWay}"/>
+                            <Label Text="Invoice: " FontSize="Micro" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                            <Picker x:Name="InvoicePicker"  ItemDisplayBinding="{Binding Description}" FontSize="Micro" Grid.Row="5"  Grid.Column="1" Grid.ColumnSpan="4"
+                                    TextColor="Black" SelectedItem="{Binding SelectedInvoice, Mode= TwoWay}"/>
+                            <Label x:Name="IsPaid" Text="Is Paid?" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                            <Switch x:Name="Paid" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" Toggled="Paid_Toggled"/>
+                            <Label x:Name="YesOrNo" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1" TextColor="Black" Text="False"/>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

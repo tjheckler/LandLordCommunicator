@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandlordCommunicator.Views.ContractorView">
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="Back To List" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <!-- Put in some editor fields -->
+    <AbsoluteLayout >
+
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Contractor" Opacity=".10"></Image>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+            <ScrollView >
+                <StackLayout Spacing="5" Padding="5">
+                  
+                    <Grid VerticalOptions="Center" HorizontalOptions="Center">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="ID" Text="{Binding Contractor.Id}" IsVisible="False" FontSize="Micro" TextColor="Black"/>
+                        <Label Text="Contractor Name: " FontSize="Micro" TextColor="Black" Grid.Row="0"/>
+                        <Label x:Name="COMANYNAME" Text="{Binding Contractor.CompanyName}" FontSize="Micro" TextColor="Black" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <Label Text="Contractor Type " FontSize="Micro" TextColor="Black" Grid.Row="1"/>
+                        <Label x:Name="CONTRACTORTYPE" Text="{Binding Contractor.ContractorType}" FontSize="Micro" TextColor="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <Label Text="Phone Number: " FontSize="Micro" TextColor="Black" Grid.Row="2"/>
+                        <Label x:Name="PHONENUMBER" Text="{Binding Contractor.PhoneNumber}" FontSize="Micro" TextColor="Black" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <Label Text="Description: " FontSize="Micro" TextColor="Black" Grid.Row="3"/>
+                        <Label x:Name="DESCRIPTION" Text="{Binding Contractor.Description}" FontSize="Micro" TextColor="Black" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+                       
+                    </Grid>
+                    <Button Text="Call" Command="{Binding CallCommand}" BackgroundColor="Black" TextColor="White" BorderRadius="15"  />
+                </StackLayout>
+
+            </ScrollView>
+
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

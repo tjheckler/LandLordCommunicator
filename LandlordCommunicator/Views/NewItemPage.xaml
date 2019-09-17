@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="LandlordCommunicator.Views.NewItemPage"
+             Title="New Item">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Inventory" Opacity=".10"></Image>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+                <ScrollView>
+                    <StackLayout Spacing="5" Padding="7">
+                        <controls:CircleImage x:Name="Picture" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100"
+                                          HorizontalOptions="Center"  Grid.Row="0" Source="{Binding Item.Image}"/>
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Text="Add Photo" Clicked="Button_Clicked" Grid.Row="0"   BackgroundColor="Black" TextColor="White" BorderRadius="15" Grid.ColumnSpan="4"/>
+
+                            <Label Text="Name" FontSize="Micro" TextColor="Black" Grid.Row="1"/>
+                        <Entry x:Name="EntryName" Placeholder="New Name" FontSize="Micro" TextColor="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Label Text="Description" FontSize="Micro" TextColor="Black" Grid.Row="2"/>
+                            <Entry x:Name="EntryDescription" Placeholder="Something Descriptive" FontSize="Micro" TextColor="Black" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Label Text="Quantity" FontSize="Micro" TextColor="Black" Grid.Row="3"/>
+                            <Entry x:Name="EntryQuantity" Placeholder="25" FontSize="Micro" Margin="0" Keyboard="Numeric" TextColor="Black" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Stepper x:Name="StepperQuantity" Increment="1" Minimum="0" Maximum="1000000" Value="{Binding Item.Quantity, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1"/>
+                            <Label Text="Cost" FontSize="Micro" TextColor="Black" Grid.Row="5"/>
+                            <Entry x:Name="EntryCost" Placeholder="88990" FontSize="Micro" Margin="0" Keyboard="Numeric" TextColor="Black" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Stepper x:Name="StepperCost"  Increment="1" Minimum="0" Maximum="1000" Value="{Binding Item.Cost, Mode=TwoWay}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1"/>
+                        </Grid>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

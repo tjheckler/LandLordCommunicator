@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="LandlordCommunicator.Views.LocationView"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="Back To List" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout >
+
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Location" Opacity=".10"></Image>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+            <ScrollView>
+                <StackLayout Spacing="5" Padding="7">
+                <controls:CircleImage x:Name="Picture"  VerticalOptions="Center"  HorizontalOptions="Center" Source="{Binding Location.Image}" Aspect="AspectFit" />
+                
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label x:Name="ID" Text="{Binding Location.Id}" IsVisible="False" FontSize="Micro" TextColor="Black"/>
+                        <Label Text="Name:" FontSize="Micro" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="NAME" Text="{Binding Location.Name}" FontSize="Micro" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Button x:Name="NAVIGATE" BackgroundColor="Black" TextColor="White" Text="Directions >>" BorderRadius="15" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Command="{Binding NavigateCommand}"/>
+                        <Label Text="Address:" FontSize="Micro" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="ADDRESS"  Text="{Binding Location.Address}"  FontSize="Micro" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black" />
+                        <Label Text="Suite:" FontSize="Micro" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                        <Label x:Name="SUITE" Text="{Binding Location.Suite}" FontSize="Micro" Margin="0" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="City:" FontSize="Micro" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="CITY" Text="{Binding Location.City}" FontSize="Micro" Margin="0" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="ZipCode:" FontSize="Micro" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="ZIPCODE" Text="{Binding Location.Zipcode}" FontSize="Micro" Margin="0"  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black" />
+                        <Label Text="Latitude:" FontSize="Micro" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="LATITUDE" Text="{Binding Location.Latitude}" FontSize="Micro" Margin="0"  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black" />
+                        <Label Text="Longitude:" FontSize="Micro" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="LONGITUDE" Text="{Binding Location.Longitude}" FontSize="Micro" Margin="0"  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black" />
+                        <Label Text="Rent Amount:" FontSize="Micro" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="RENTAMOUNT" Text="{Binding Location.RentAmount}" FontSize="Micro" Margin="0"  Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                        <Label Text="Renter:" FontSize="Micro" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                        <Label x:Name="RENTER" Text="{Binding Location.Tenant}" FontSize="Micro" Margin="0"  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black" LineBreakMode="WordWrap"/>
+                    </Grid>
+                
+            </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

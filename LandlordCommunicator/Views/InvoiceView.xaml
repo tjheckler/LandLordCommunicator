@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandlordCommunicator.Views.InvoiceView"
+            Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="Back to List" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout >
+
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Inventory" Opacity=".10"></Image>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+            <!-- Put in some editor fields -->
+            <StackLayout Spacing="5" Padding="5">
+
+                <Image x:Name="Picture" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" Source="{Binding Invoice.Image}"  Grid.Row="0" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="ID" Text="{Binding Invoice.Id}" IsVisible="False" FontSize="Micro" TextColor="Black"/>
+                    
+                    <Label Text="Description: " FontSize="Micro" TextColor="Black" Grid.Row="1"/>
+                    <Label x:Name="DESCRIPTION" Text="{Binding Invoice.Description}" FontSize="Micro" TextColor="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    
+                </Grid>
+
+            </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="LandlordCommunicator.Views.AllToDo"
+              Title=""
+             x:Name="BrowseItemsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="View" Clicked="ViewItem_Clicked" x:Name="Details" >
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="edit.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Edit" Clicked="Edit_Clicked" x:Name="Edit" >
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="edit.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" x:Name="Add">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="add.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="X" Clicked="Delete_Clicked" x:Name="Delete">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="delete.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+
+    <AbsoluteLayout >
+
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="ToDo" Opacity=".10"></Image>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+            <StackLayout BackgroundColor="Black">
+                <Label Text="ToDo List" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                <BoxView HeightRequest="1" BackgroundColor="Black" Color="Black"/>
+                
+            </StackLayout>
+            <ListView x:Name="ToDoListView"
+                ItemsSource="{Binding todo}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadLocationsCommand}"
+                IsPullToRefreshEnabled="False"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement"
+                ItemSelected="OnItemSelected">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!--> Add a Grid -->
+                        <StackLayout Padding="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                    <controls:CircleImage x:Name="Picture" Aspect="Fill" VerticalOptions="Center" HeightRequest="50" WidthRequest="50"
+                                          HorizontalOptions="Center" Source="{Binding Image}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="3"  />
+
+                                <Label Text="{Binding Name}"  FontSize="Micro" Grid.Row="0" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="3" LineBreakMode="WordWrap" TextColor="Black"/>
+
+
+                                    <Label Text="{Binding Description}"  FontSize="Micro" Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="3" LineBreakMode="WordWrap" TextColor="Black"/>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+        </AbsoluteLayout>
+</ContentPage>

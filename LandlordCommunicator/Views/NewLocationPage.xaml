@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LandlordCommunicator.Views.NewLocationPage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Title="New Location">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <AbsoluteLayout >
+
+            <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Source="Location" Opacity=".10"></Image>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" >
+                <ScrollView>
+                    <StackLayout Spacing="5" Padding="5">
+
+                        <controls:CircleImage x:Name="Picture" Aspect="AspectFit" VerticalOptions="Center" HeightRequest="100"
+                                          HorizontalOptions="Center" Source="{Binding Location.Image}" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                           
+
+                            <Button Text="Add Photo" Clicked="Image_Clicked" Grid.Row="0"  Grid.ColumnSpan="5"  BackgroundColor="Black" TextColor="White" BorderRadius="15" />
+
+                            <Label Text="Name:" FontSize="Micro" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                            <Entry x:Name="EntryName" Placeholder="New Name" FontSize="Micro" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="Address:" FontSize="Micro" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                            <Entry x:Name="EntryAddress" Placeholder="1234 That One Street"  FontSize="Micro" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="Suite:" FontSize="Micro" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                            <Entry x:Name="EntrySuite" Placeholder="A" FontSize="Micro" Margin="0" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="City:" FontSize="Micro" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black" />
+                            <Entry x:Name="EntryCity" Placeholder="ThatTown" FontSize="Micro" Margin="0" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="ZipCode:" FontSize="Micro" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                            <Entry x:Name="EntryZipCode" Placeholder="88990" FontSize="Micro" Margin="0" Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="Latitude:" FontSize="Micro" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black" />
+                            <Entry x:Name="EntryLatitude" Placeholder="-34" FontSize="Micro" Margin="0" Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="Longitude:" FontSize="Micro" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black" />
+                            <Entry x:Name="EntryLongitude" Placeholder="92" FontSize="Micro" Margin="0" Keyboard="Numeric" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="(Button Only Accesses Current Coordinance)" FontSize="Micro" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" TextColor="Black"/>
+                            <Button Text="Get GPS Coordinance" Clicked="GPS_Clicked" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"  BackgroundColor="Black" TextColor="White" BorderRadius="15" />
+                            <Label Text="Rent Amount:" FontSize="Micro" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                            <Entry x:Name="EntryRentAmount" Placeholder="100" FontSize="Micro" Margin="0" Keyboard="Numeric" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="3" TextColor="Black"/>
+                            <Label Text="Tenant: " FontSize="Micro" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"/>
+                            <Picker x:Name="TenantPicker"  ItemDisplayBinding="{Binding Renter}" FontSize="Micro" Grid.Row="11"  Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black" SelectedItem="{Binding SelectedItem, Mode= TwoWay}"/>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
